@@ -1,5 +1,3 @@
-alert('sss')
-
 
 function setboard(){
     let data={

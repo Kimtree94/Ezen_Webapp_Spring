@@ -5,10 +5,13 @@ function setmember(){
     //보내고자하는 필드명과 매핑하고자 하는 DTO의 필드명은 동일해야한다 .
     let info = {
     memail:document.querySelector('.memail').value,
-    mpassword : document.querySelector('.mpassword').value
+    mpassword : document.querySelector('.mpassword').value,
+    mphone : document.querySelector('.mphone').value
     }
     let timerbox=document.querySelector('.timerbox').innerHTML
-    if(timerbox!='인증성공'){alert('이메일 인증부터 해주세요');return;}
+    console.log("위::"+timerbox)
+    if(timerbox!="인증성공"){alert('이메일 인증부터 해주세요');return;}
+
     $.ajax({
     url:"/member/setmember",
     type:"post",
@@ -67,7 +70,8 @@ function authcode(){
           alert('인증성공')
           clearInterval(timerinter);
           auth=null; timer=0;
-          document.querySelector('.timerbox').innerHTML='인증성공 ';
+          document.querySelector('.timerbox').innerHTML='인증성공';
+          console.log(document.querySelector('.timerbox').innerHTML)
      }else{
          alert('인증 실패')
      }
