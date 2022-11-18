@@ -1,11 +1,15 @@
 package com.Ezenweb.domain.Dto;
 
 
-import com.Ezenweb.domain.entity.MemberEntity;
+import com.Ezenweb.domain.entity.member.MemberEntity;
 import lombok.*;
 
-@NoArgsConstructor@AllArgsConstructor
-@Getter@Setter@ToString@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
 public class MemberDto {
     private int mno;
     private String memail;
@@ -13,7 +17,7 @@ public class MemberDto {
     private String mphone;
 
     //*dto--->entity 변환
-    public MemberEntity toEntity(){
+    public MemberEntity toEntity() {
         return MemberEntity.builder()
                 .mno(this.mno)
                 .memail(this.memail)

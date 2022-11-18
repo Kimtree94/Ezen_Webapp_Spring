@@ -2,12 +2,13 @@ package com.Ezenweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication/*클래스가 실행될때 스프링의 기본셋팅값을 다 잡는다*/
-//스프링 웹 기본설명 [ 1. MVC , 2.내장서버 , 3. RESTFUL , 4. 웹 설정  ]
-//스프링 웹을 위한 기본 셋팅 어노테이션
+@EnableJpaAuditing//JPA 감시 [ 생성,변경 ] p.242
 public class Webstart {
-
+    //스프링 웹 기본설명 [ 1. MVC , 2.내장서버 , 3. RESTFUL , 4. 웹 설정  ]
+//스프링 웹을 위한 기본 셋팅 어노테이션
     public static void main(String[] args) {//main 스레드
 
         SpringApplication.run(Webstart.class);//스프링 어플리케이션실행 현재클래스명.class

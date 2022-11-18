@@ -1,11 +1,10 @@
 package com.Ezenweb.service;
 
 import com.Ezenweb.domain.Dto.MemberDto;
-import com.Ezenweb.domain.entity.MemberEntity;
-import com.Ezenweb.domain.entity.MemberRepository;
+import com.Ezenweb.domain.entity.member.MemberEntity;
+import com.Ezenweb.domain.entity.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -137,10 +136,10 @@ public class MemberService {
         }
     }
 
-    public int logout(){
+    public int logout() {
         Object object = request.getSession().getAttribute("loginMno");
-        if(object!=null){
-            request.getSession().setAttribute("loginMno",null);
+        if (object != null) {
+            request.getSession().setAttribute("loginMno", null);
             return 1;
         }
         return 0;
@@ -148,59 +147,62 @@ public class MemberService {
 
 
     // 8. 회원목록 서비스
-    public List<MemberDto> list(){
+    public List<MemberDto> list() {
         // 1. JPA 이용한 모든 엔티티 호출
         List<MemberEntity> list = memberRepository.findAll();
         // 2. 엔티티 --> DTO
         // Dto list 선언
         List<MemberDto> dtoList = new ArrayList<>();
-        for( MemberEntity entity : list ){
-            dtoList.add( entity.toDto() ); // 형변환
+        for (MemberEntity entity : list) {
+            dtoList.add(entity.toDto()); // 형변환
         }
         return dtoList;
     }
+
     // 9. 인증코드 발송
-    public String getauth(String toemail){
+    public String getauth(String toemail) {
         String auth = ""; //인증코드
-        String html="<html><body><h1>Ezenweb 회원가입 이메일 인증코드 입니다 </h1>";
+        String html = "<html><body><h1>Ezenweb 회원가입 이메일 인증코드 입니다 </h1>";
 
         Random random = new Random(); // 1. 난수객체
-        for(int i=0; i<6;i++){          //2. 6 회전
-            char randchar =(char)(random.nextInt(26)+97);//97~122 영소문자
-           // char randchar = random.nextInt(10)+48;//48~57   0~9의 숫자
-            auth+=randchar;
+        for (int i = 0; i < 6; i++) {          //2. 6 회전
+            char randchar = (char) (random.nextInt(26) + 97);//97~122 영소문자
+            // char randchar = random.nextInt(10)+48;//48~57   0~9의 숫자
+            auth += randchar;
         }
 
 
-        html+="<div>인증코드 :"+auth+"</div>";
-        html+="</body></html>";
-        meailsend(toemail,"Ezenweb 인증코드",html); // 메일전송
-        System.out.println("sdsdsdsd"+auth);
+        html += "<div>인증코드 :" + auth + "</div>";
+        html += "</body></html>";
+        meailsend(toemail, "Ezenweb 인증코드", html); // 메일전송
+        System.out.println("sdsdsdsd" + auth);
         return auth; // 인증코드 반환
 
     }
 
 
     //메일 전송 서비스
-    public void meailsend(String toemail , String title , String content){
-        try{
+    public void meailsend(String toemail, String title, String content) {
+        try {
 
 
-        //1.MIME 프로토콜 객체 생성
-        MimeMessage message = javaMailSender.createMimeMessage();
-        //2. MimeMessageHelper 설정 객체 생성  new MimeMessageHelper(mime객체명 , 첨부파일여부 , 인코딩타입);
-        MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message , true , "utf-8");
-        //3.보내는사람 정보
-        mimeMessageHelper.setFrom("mz1693@naver.com" , "Ezenweb");
-        //4.받는사람
-        mimeMessageHelper.setTo(toemail); // 받는사람 이메일
-        //5.메일의 제목
-        mimeMessageHelper.setSubject(title); // 제목
-        //6.메일의 내용
-        mimeMessageHelper.setText(content.toString(),true); // HTML형식 지원
-        //7.메일전송
-        javaMailSender.send(message);
-        }catch (Exception e){System.out.println("메일전송실패 :"+e);}
+            //1.MIME 프로토콜 객체 생성
+            MimeMessage message = javaMailSender.createMimeMessage();
+            //2. MimeMessageHelper 설정 객체 생성  new MimeMessageHelper(mime객체명 , 첨부파일여부 , 인코딩타입);
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message, true, "utf-8");
+            //3.보내는사람 정보
+            mimeMessageHelper.setFrom("mz1693@naver.com", "Ezenweb");
+            //4.받는사람
+            mimeMessageHelper.setTo(toemail); // 받는사람 이메일
+            //5.메일의 제목
+            mimeMessageHelper.setSubject(title); // 제목
+            //6.메일의 내용
+            mimeMessageHelper.setText(content.toString(), true); // HTML형식 지원
+            //7.메일전송
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            System.out.println("메일전송실패 :" + e);
+        }
 
     }
 
