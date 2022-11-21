@@ -30,6 +30,23 @@ public class MemberService {
     private JavaMailSender javaMailSender;  // 메일전송 객체
 
     // --------------------------------서비스 메소드-----------------------------------///
+    //로그인된 인테테 호출
+    public MemberEntity getEntity() {
+        // 로그인 정보 확인 [ 세션 ]
+        Object object = request.getSession().getAttribute("loginMno");
+        if (object == null) {
+            return null;
+        }
+        // 로그인된 회원정보 호출
+        int mno = (Integer) object;
+        // 회원번호 ---> 회원정보 호출
+        Optional<MemberEntity> optional = memberRepository.findById(mno);
+        if (!optional.isPresent()) {
+            return null;
+        }
+        return optional.get();
+    }
+
     @Transactional
     public int setmember(MemberDto memberDto) {
         MemberEntity entity = memberRepository.save(memberDto.toEntity());

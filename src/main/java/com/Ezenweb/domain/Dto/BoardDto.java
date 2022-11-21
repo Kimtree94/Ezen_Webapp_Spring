@@ -17,7 +17,6 @@ public class BoardDto {
     private String bcontent;      //게시물내용
     private int bview;            //조회수
     private String bfile;         //첨부파일
-    private int mno;
     private int bcno;
     private String memail;            //아이디
 

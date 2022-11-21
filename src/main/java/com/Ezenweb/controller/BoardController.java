@@ -1,7 +1,11 @@
 package com.Ezenweb.controller;
 
+import com.Ezenweb.domain.Dto.BcategoryDto;
 import com.Ezenweb.domain.Dto.BoardDto;
+import com.Ezenweb.domain.Dto.GcategoryDto;
+import com.Ezenweb.domain.Dto.gBoardDto;
 import com.Ezenweb.service.BoardService;
+import com.Ezenweb.service.GuestbookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -24,6 +28,8 @@ public class BoardController {
     //2.@Autowired 어노테이션을 이용해서 Spring 컨테이너에 빈[메모리] 생성
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private GuestbookService guestbookService;
 
     //-------------------2.페이지 요청 로드 [view]----------------------//
     //1.게시물목록 페이지 열기
@@ -50,6 +56,11 @@ public class BoardController {
         return new ClassPathResource("templates/board/update.html");
     }
 
+    @GetMapping("/guestbook")
+    public Resource getguestbook() {
+        return new ClassPathResource("templates/board/guestbook.html");
+    }
+
     //-------------------3.요청과응답 처리 [model]----------------------//
     //1.HTTP 요청 메소드 매핑 : @PostMapping @GetMapping @DeleteMapping @PutMapping
     //2.HTTP 요청 메소드 매핑 :@RequestBody @RequestParam @PathVariable
@@ -62,8 +73,8 @@ public class BoardController {
 
     //2.게시물 목록 조회 [ 페이징,검색 ]
     @GetMapping("/boardlist")
-    public List<BoardDto> boardlist() {
-        return boardService.boardlist();
+    public List<BoardDto> boardlist(@RequestParam("bcno") int bcno) {
+        return boardService.boardlist(bcno);
     }
 
     //3.게시물 개별 조회
@@ -85,4 +96,34 @@ public class BoardController {
     }
     //@GetMapping("/bcount")
     //public boolean bcount(@RequestParam("bno") int bno){return boardService.bcount(bno);}
+
+    //6.카테고리 등록
+    @PostMapping("/setbcategory")
+    public boolean setbcategory(@RequestBody BcategoryDto bcategoryDto) {
+        return boardService.setbcategory(bcategoryDto);
+    }
+
+    //7.모든 카테고리 출력
+    @GetMapping("/bcategorylist")
+    public List<BcategoryDto> bcategorylist() {
+        return boardService.bcategorylist();
+    }
+
+    //과제
+    @PostMapping("/setgboard")
+    public boolean setgboard(@RequestBody gBoardDto gboardDto) {
+        System.out.println("boardDto받기 :" + gboardDto.toString());
+        return guestbookService.setgboard(gboardDto);
+    }
+
+    @PostMapping("/guestcate")
+    public boolean guestcate(@RequestBody GcategoryDto gcategoryDto) {
+        return guestbookService.guestcate(gcategoryDto);
+    }
+
+    @GetMapping("/guestcatelist")
+    public List<GcategoryDto> guestcatelist() {
+        return guestbookService.guestcatelist();
+    }
+
 }
