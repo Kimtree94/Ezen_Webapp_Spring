@@ -8,20 +8,36 @@
 
 </head>
 <body>
-<input type="text" class="gtitle" placeholder="카테고리추가">
+<input type="text" class="gcatetitle" placeholder="카테고리추가">
 <button type="button" onclick="setgcategory()">추가하기</button><br>
 <div>
     <table class="guestlist">
 
     </table>
 </div>
+<h3>글작성시 카테고리를 선택후 작성해주세요</h3>
+<h3>카테고리별 글보기도 위에서 클릭해주세요ㅎ</h3>
 <div>
-    제목 : <input type="text" class="gtitle">
-    내용 : <input type="text" class="gcontent">
-    작성자: <input type="text" class="gid">
+    제목 : <input type="text" class="gtitle"><br>
+    내용 : <input type="text" class="gcontent"><br>
+    작성자: <input type="text" class="gid"><br>
     <button type="button" onclick="setgboard()">등록</button>
 </div>
+<br>
+<form class="updateform">
+<h3>수정하기</h3>
+번호<input type="text" name="gbno" class="detail_no"><br>
+제목<input type="text"  name="gtitle" class="detail_title"><br>
+내용<input type="text" name="gcontent"  class="detail_content"><br>
+<button type="button" onclick="gcorrection()">수정하기</button>
+</form>
+<div class="correction">
 
+</div>
+<table class="gboardlist">
+
+
+</table>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/js/Board/guestbook.js"></script>
 </body>

@@ -55,4 +55,49 @@ public class GuestbookService {
             return false;
         }
     }
+
+    @Transactional
+    public List<gBoardDto> showgboard(int gcno) {
+        List<gBoardEntity> glist = null;
+        if (gcno == 0) {
+            glist = gboardRepository.findAll();
+        } else {
+            GuestCatelEntity guestCatelEntity = guestcateRepository.findById(gcno).get();
+            glist = guestCatelEntity.getGBoardEntityList();
+        }
+        List<gBoardDto> gdlist = new ArrayList<>();
+        for (gBoardEntity entity : glist) {
+            gdlist.add(entity.toDto());
+        }
+        System.out.println("보자아~~" + gdlist);
+        return gdlist;
+    }
+
+    @Transactional
+    public gBoardDto showdetail(int gbno) {
+        Optional<gBoardEntity> optional = gboardRepository.findById(gbno);
+
+        if (optional.isPresent()) {
+            gBoardEntity gboardEntity = optional.get();
+            return gboardEntity.toDto();
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
+    public boolean gcorrection(gBoardDto gboarDto) {
+        System.out.println("서비스;;;" + gboarDto);
+        Optional<gBoardEntity> optional = gboardRepository.findById(gboarDto.getGbno());
+        if (optional.isPresent()) {
+            gBoardEntity entity = optional.get();
+
+            entity.setGtitle(gboarDto.getGtitle());
+            entity.setGcontent(gboarDto.getGcontent());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

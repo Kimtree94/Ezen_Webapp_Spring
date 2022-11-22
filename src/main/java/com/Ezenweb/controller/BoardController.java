@@ -126,4 +126,19 @@ public class BoardController {
         return guestbookService.guestcatelist();
     }
 
+    @GetMapping("/showgboard")
+    public List<gBoardDto> showgboard(@RequestParam("gcno") int gcno) {
+        return guestbookService.showgboard(gcno);
+    }
+
+    @GetMapping("/showdetail")
+    public gBoardDto showdetail(@RequestParam("gbno") int gbno) {
+        return guestbookService.showdetail(gbno);
+    }
+
+    @PostMapping("/gcorrection")
+    public boolean gcorrection(gBoardDto gboardDto) {
+        System.out.println("컨트롤확인;;;" + gboardDto);
+        return guestbookService.gcorrection(gboardDto);
+    }
 }
