@@ -2,6 +2,7 @@ package com.Ezenweb.domain.Dto;
 
 import com.Ezenweb.domain.entity.board.gBoardEntity;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +16,8 @@ public class gBoardDto {
     private String gcontent;
     private String gid;
     private int gcno;
+    private String filename;
+    private MultipartFile gfile;
 
     public gBoardEntity toEntity() {
         return gBoardEntity.builder()

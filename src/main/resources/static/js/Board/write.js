@@ -2,20 +2,22 @@
 let bcno = 2; // 카테고리 번호 전역변수
 //게시물 등록 메소드
 function setboard(){
-    let data={
-       btitle:document.querySelector('.btitle').value,
-       bcontent:document.querySelector('.bcontent').value,
-       bfile:document.querySelector('.bfile').value,
-       bcno:bcno
-    }
+  let boardform = document.querySelector('.boardform');
+  let formdata = new FormData(boardform);
+  formdata.set("bcno", bcno) // 폼 데이터에 데이터 카테고리 정보 추가
+
     $.ajax({
         url:"/board/setboard",
         type:"post",
-        data:JSON.stringify(data),
-        contentType:"application/json",
+        data:formdata,
+        contentType:false,
+        processData:false,
         success:function(re){
         console.log(re)
-        if(re==true){location.href="/board/list"}
+        if(re==true){
+        alert("글작성 성공~~!")
+        location.href="/board/list"
+        }
         else{alert("글작성실패~~")}
         }
     })

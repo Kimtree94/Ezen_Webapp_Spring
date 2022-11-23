@@ -10,7 +10,6 @@ public class Webstart {
     //스프링 웹 기본설명 [ 1. MVC , 2.내장서버 , 3. RESTFUL , 4. 웹 설정  ]
 //스프링 웹을 위한 기본 셋팅 어노테이션
     public static void main(String[] args) {//main 스레드
-
         SpringApplication.run(Webstart.class);//스프링 어플리케이션실행 현재클래스명.class
     }
 }

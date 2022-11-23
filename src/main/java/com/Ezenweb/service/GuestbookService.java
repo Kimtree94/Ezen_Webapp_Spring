@@ -10,17 +10,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class GuestbookService {
+    String gpath = "C:\\Users\\504\\Desktop\\springweb\\Ezen_Spring\\src\\main\\resources\\static\\gbupload\\";
     @Autowired
-    public GuestcateRepository guestcateRepository;
+    private GuestcateRepository guestcateRepository;
     @Autowired
-    public gBoardRepository gboardRepository;
+    private gBoardRepository gboardRepository;
+    @Autowired
+    private HttpServletRequest request;
+    @Autowired
+    private HttpServletResponse response;
 
+    ///////////////////////////////////////////////////////////////////////////
     @Transactional
     public boolean guestcate(GcategoryDto gcategoryDto) {
         GuestCatelEntity gbe = guestcateRepository.save(gcategoryDto.toEntity());
@@ -48,6 +58,18 @@ public class GuestbookService {
         GuestCatelEntity guestCatelEntity = optional.get();
         gBoardEntity gBoardEntity = gboardRepository.save(gboardDto.toEntity());
         if (gBoardEntity.getGbno() != 0) {
+
+            String uuid = UUID.randomUUID().toString();
+            String gfilename = uuid + "_" + gboardDto.getGfile().getOriginalFilename();
+
+            gBoardEntity.setGfile(gfilename);
+
+            try {
+                File upload = new File(gpath + gfilename);
+                gboardDto.getGfile().transferTo(upload);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             gBoardEntity.setGuestCatelEntity(guestCatelEntity);
             guestCatelEntity.getGBoardEntityList().add(gBoardEntity);
             return true;
@@ -69,7 +91,6 @@ public class GuestbookService {
         for (gBoardEntity entity : glist) {
             gdlist.add(entity.toDto());
         }
-        System.out.println("보자아~~" + gdlist);
         return gdlist;
     }
 

@@ -25,7 +25,8 @@ public class gBoardEntity {
     private String gcontent;
     @Column(nullable = false)
     private String gid;
-
+    @Column
+    private String gfile;
     @ManyToOne
     @JoinColumn(name = "gcno")
     @ToString.Exclude
@@ -38,6 +39,7 @@ public class gBoardEntity {
                 .gtitle(this.gtitle)
                 .gcontent(this.gcontent)
                 .gid(this.gid)
+                .filename(this.gfile)
                 .build();
     }
 }

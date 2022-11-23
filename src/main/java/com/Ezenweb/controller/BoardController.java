@@ -66,7 +66,7 @@ public class BoardController {
     //2.HTTP 요청 메소드 매핑 :@RequestBody @RequestParam @PathVariable
     //1.게시물 쓰기 [ 첨부파일 ]
     @PostMapping("/setboard")
-    public boolean setboard(@RequestBody BoardDto boardDto) {
+    public boolean setboard(BoardDto boardDto) { // file 받을때는 @RequestBody 안된다~~
         System.out.println("boardDto받기 :" + boardDto.toString());
         return boardService.setboard(boardDto);
     }
@@ -109,10 +109,16 @@ public class BoardController {
         return boardService.bcategorylist();
     }
 
+    //8.첨부파일 다운로드
+    @GetMapping("/filedownload")
+    public void filedownload(@RequestParam("filename") String filename) {
+        boardService.filedownload(filename);
+    }
+
     //과제
     @PostMapping("/setgboard")
-    public boolean setgboard(@RequestBody gBoardDto gboardDto) {
-        System.out.println("boardDto받기 :" + gboardDto.toString());
+    public boolean setgboard(gBoardDto gboardDto) {
+        System.out.println("boasdsdsdrdDto받기 :" + gboardDto.toString());
         return guestbookService.setgboard(gboardDto);
     }
 

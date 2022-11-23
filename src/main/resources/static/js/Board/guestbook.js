@@ -13,17 +13,15 @@ success: function(re){
 })
 }
 function setgboard(){
-let data={
-gtitle:document.querySelector('.gtitle').value,
-gcontent:document.querySelector('.gcontent').value,
-gid:document.querySelector('.gid').value,
-gcno:gcno
-}
+let form = document.querySelector('.setgform');
+let formdata= new FormData(form);
+formdata.set("gcno",gcno)
 $.ajax({
     url:"/board/setgboard",
     type:"post",
-    data:JSON.stringify(data),
-    contentType:"application/json",
+    data:formdata,
+    contentType:false,
+    processData:false,
     success: function(re){
     if(re==true){
     alert("글 등록 완료!!");showList();
@@ -31,7 +29,6 @@ $.ajax({
     else{alert("글등록실패 관리자에게 문의")}
     }
 })
-
 }
 gcategorylist()
 function gcategorylist(){
@@ -86,6 +83,7 @@ data:{"gbno":gbno},
             document.querySelector('.detail_no').value = re.gbno
             document.querySelector('.detail_title').value = re.gtitle
    			document.querySelector('.detail_content').value = re.gcontent
+   			document.querySelector('.detail_gfile').value = re.gfile
         }
     })
 }
