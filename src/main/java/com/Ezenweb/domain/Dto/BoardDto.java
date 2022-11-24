@@ -18,6 +18,7 @@ public class BoardDto {
     private String bcontent;      //게시물내용
     private int bview;            //조회수
     private MultipartFile bfile;         //첨부파일
+    private String bfilename;       // 첨부파일 호출용
     // spring : MultipartFile
     // jsp : cos 라이브러리
     private int bcno;

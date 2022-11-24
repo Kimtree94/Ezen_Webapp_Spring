@@ -9,24 +9,23 @@ $.ajax({
     data:{"bno":bno},
     success:function(re){
       let html='<tr><th>제목</th><th>내용</th><th>첨부파일</th></tr>';
-              html+='<tr><td>'+re.btitle+'</td><td>'+re.bcontent+'</td><td>'+re.bflie+'</td></tr>'
+              html+='<tr><td>'+re.btitle+'</td><td>'+re.bcontent+'</td><td>'+re.bfilename.split("_")[1]+'</td></tr>'
               document.querySelector('.bview').innerHTML=html;
     }
 })
 }
 //수정버튼 클릭시 호출되는 메소드
 function upboard(){
-        let data={
-           btitle:document.querySelector('.btitle').value,
-           bcontent:document.querySelector('.bcontent').value,
-           bfile:document.querySelector('.bfile').value,
-           bno:bno
-        }
+       let upform = document.querySelector('.upform');
+       let formdata = new FormData(upform);
+       formdata.set("bno",bno);
+       console.log(formdata.bfilename)
         $.ajax({
             url:"/board/upboard",
             type:"put",
-            data:JSON.stringify(data),
-            contentType:"application/json", //body로 받을때
+            data:formdata,
+            contentType:false, //body로 받을때
+            processData:false,
             success:function(re){
             console.log(re)
             if(re==true){alert("수정완료");location.reload()}
