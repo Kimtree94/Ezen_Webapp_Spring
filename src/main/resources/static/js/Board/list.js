@@ -8,6 +8,7 @@ function boardlist(){
         data:{"bcno":bcno},
         type:"get",
         success:function(re){
+        console.log(re);
           let html='<tr><th>게시물번호</th><th>제목</th><th>작성자</th></tr>';
          re.forEach((e)=>{
           html+='<tr><th>'+e.bno+'</th><th onclick="getview('+e.bno+')">'+e.btitle+'</th><th>'+e.memail+'</th></tr>'

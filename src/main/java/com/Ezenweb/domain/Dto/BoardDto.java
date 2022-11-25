@@ -24,6 +24,9 @@ public class BoardDto {
     private int bcno;
     private String memail;            //아이디
 
+    private int startbtn;
+    private int endbtn;
+
     //1.형변환
     public BoardEntity toEntity() { // 생성자를 이용한 생성
         return BoardEntity.builder()

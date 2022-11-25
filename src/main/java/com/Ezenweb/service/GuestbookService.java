@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @Service
 public class GuestbookService {
-    String gpath = "C:\\Users\\504\\Desktop\\springweb\\Ezen_Spring\\src\\main\\resources\\static\\gbupload\\";
+    String gpath = "C:\\Users\\504\\IdeaProjects\\Ezen_Webapp_Spring\\src\\main\\resources\\static\\gbupload\\";
     @Autowired
     private GuestcateRepository guestcateRepository;
     @Autowired
