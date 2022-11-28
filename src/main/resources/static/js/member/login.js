@@ -1,4 +1,6 @@
 
+ /*2022-11-28 시큐리트 사용하여 의미없어짐*/
+/*
 function getmember(){
     let info = {
         memail:document.querySelector('.memail').value,
@@ -11,4 +13,4 @@ function getmember(){
         contentType:"application/json",
         success: function(re){alert(re)}
         })
-}
+}*/

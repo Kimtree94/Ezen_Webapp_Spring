@@ -59,7 +59,8 @@ public class MemberService {
     }
 
     //2.로그인
-    @Transactional
+    /*2022-11-28 시큐리트 사용하여 의미없어짐*/
+/*    @Transactional
     public int getmember(MemberDto memberDto) {
         //1.Dao처리 [ select ]
         //1.모든 엔티티 호출
@@ -78,7 +79,7 @@ public class MemberService {
             }
         }
         return 0;//아이디가 틀림
-    }
+    }*/
 
     //3.비밀번호 찾기
     @Transactional

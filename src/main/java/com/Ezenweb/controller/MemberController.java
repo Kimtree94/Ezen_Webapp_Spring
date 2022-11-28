@@ -53,11 +53,12 @@ public class MemberController {
         return result;
     }
 
-    @PostMapping("/getmember")//restful api 로그인
+    /*2022-11-28 시큐리트 사용하여 의미없어짐*/
+   /* @PostMapping("/getmember")//restful api 로그인
     public int getmember(@RequestBody MemberDto memberDto) {
         int result = memberService.getmember(memberDto);
         return result;
-    }
+    }*/
 
     @GetMapping("/getpassword")//pw찾기
     public String getpassword(@RequestParam String memail) {
