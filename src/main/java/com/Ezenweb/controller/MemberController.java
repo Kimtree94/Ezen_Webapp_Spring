@@ -79,16 +79,16 @@ public class MemberController {
     }
 
     @GetMapping("/getloginMno")
-    public int getloginMno() {
-        int result = memberService.getloginMno();
+    public String getloginMno() {
+        String result = memberService.getloginMno();
         return result;
     }
 
-    @GetMapping("/logout")
+  /*  @GetMapping("/logout") // 지원해줌
     public int logout() {
         int result = memberService.logout();
         return result;
-    }
+    }*/
 
     @GetMapping("/list") // 8. 회원목록
     public List<MemberDto> list() {
