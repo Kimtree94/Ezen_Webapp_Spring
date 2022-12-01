@@ -102,7 +102,8 @@ public class BoardController {
     //@GetMapping("/bcount")
     //public boolean bcount(@RequestParam("bno") int bno){return boardService.bcount(bno);}
 
-    //6.카테고리 등록
+    //6.카테고리 등록{}
+
     @PostMapping("/setbcategory")
     public boolean setbcategory(@RequestBody BcategoryDto bcategoryDto) {
         return boardService.setbcategory(bcategoryDto);
