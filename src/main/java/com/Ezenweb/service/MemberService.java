@@ -58,15 +58,30 @@ public class MemberService
         //4. Dto 처리
         OauthDto oauthDto = OauthDto.of(registrationId, oauth2UserInfo, oAuth2User.getAttributes());
         //*. DB처리
+
+        //1. 이메일로 엔티티검색 (신규회원인지 기존회원인지 확인 )
+        Optional<MemberEntity> optional = memberRepository.findByMemail(oauthDto.getMemail());
+
+        MemberEntity memberEntity = null;
+        if (optional.isPresent()) { //기존회원이면// Optional 클래스는 null 예외처리 방지
+            memberEntity = optional.get();
+    } else {//기존회원이 아니면 // 이메일은 같지만 소셜 클라이언트는 다르다
+            memberEntity = memberRepository.save(oauthDto.toEntity());
+        }
+
+        /*memberRepository.findByMemail(oauthDto.getMemail())
+                .orElseThrow(()->{});*/
+
         //  권한
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("kakaoUser"));
+        authorities.add(new SimpleGrantedAuthority(memberEntity.getMrole()));
+
 
         //5.반환 MemberDto [ 일반회원 vs oauth : 통합회원 -loginDto ]
         MemberDto memberDto = new MemberDto();
-            memberDto.setMemail(oauthDto.getMemail());
-            memberDto.setAuthorities(authorities);
-            memberDto.setAttributes(oauthDto.getAttributes());
+        memberDto.setMemail(memberEntity.getMemail());
+        memberDto.setAuthorities(authorities);
+        memberDto.setAttributes(oauthDto.getAttributes());
         return memberDto;
     }
 
@@ -85,6 +100,9 @@ public class MemberService
         //1. 입력받은 아이디 [memail] = 로 엔티티 찾기
         MemberEntity memberEntity = memberRepository.findByMemail(memail)
                 .orElseThrow(() -> new UsernameNotFoundException("사용자가 존재하지 않습니다."));
+
+        /*소셜 회원도 [비밀번호를 설정해서 일반회원처럼 로그인시킬건지 ]*/
+
         // .orElseThrow() : 검색결과가 없으면   화살표함수[람다식]을 이용한
         //2. 토큰생성 [일반 유저 ]
         Set<GrantedAuthority> authorities = new HashSet<>();
@@ -97,7 +115,7 @@ public class MemberService
     }
 
     // --------------------------------서비스 메소드-----------------------------------///
-    //로그인된 인테테 호출
+    //로그인된 엔티티 호출
     public MemberEntity getEntity() {
         // 로그인 정보 확인 [ 세션 ]
         Object object = request.getSession().getAttribute("loginMno");
@@ -233,7 +251,7 @@ public class MemberService
             return null;
         } else { // anonymousUser 아니면 로그인후
             MemberDto memberDto = (MemberDto) principal;
-            return memberDto.getMemail()+"_"+memberDto.getAuthorities();
+            return memberDto.getMemail() + "_" + memberDto.getAuthorities();
         }
     }
     /*   //1.세션 호출

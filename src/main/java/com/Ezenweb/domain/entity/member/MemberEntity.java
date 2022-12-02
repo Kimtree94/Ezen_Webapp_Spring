@@ -26,10 +26,10 @@ public class MemberEntity extends BaseEntity {
     @Column(nullable = false) // not null 과 같은 개념
     private String memail;//회원이메일
 
-    @Column(nullable = false) // not null
+    @Column
     private String mpassword; // 회원 비밀버ㅏㄴ호 필드
 
-    @Column(nullable = false) // not null 과 같은 개념
+    @Column
     private String mphone; // 회원 전화번호 필드
 
     @OneToMany(mappedBy = "memberEntity") //[ 1:n ]PK에 해당하는 어노테이션  mappedBy = fk의 필드명
