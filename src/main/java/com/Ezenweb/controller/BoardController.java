@@ -31,9 +31,9 @@ public class BoardController {
     @Autowired
     private GuestbookService guestbookService;
 
-    //-------------------2.페이지 요청 로드 [view]----------------------//
+    //-------------------2.페이지 요청 로드 [view] * react사용시 불필요 ----------------------//
     //1.게시물목록 페이지 열기
-    @GetMapping("/list")//URL :localhost:8080/board/list 요청시 html반환
+ /*   @GetMapping("/list")//URL :localhost:8080/board/list 요청시 html반환
     public Resource getlist() {
         return new ClassPathResource("templates/board/list.html");
     }
@@ -60,7 +60,7 @@ public class BoardController {
     public Resource getguestbook() {
         return new ClassPathResource("templates/board/guestbook.html");
     }
-
+*/
     //-------------------3.요청과응답 처리 [model]----------------------//
     //1.HTTP 요청 메소드 매핑 : @PostMapping @GetMapping @DeleteMapping @PutMapping
     //2.HTTP 요청 메소드 매핑 :@RequestBody @RequestParam @PathVariable

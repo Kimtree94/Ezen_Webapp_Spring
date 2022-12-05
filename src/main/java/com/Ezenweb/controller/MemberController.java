@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000") // 요청 포트 변경 어노테이션
+//@CrossOrigin(origins = "http://localhost:3000") // 요청 포트 변경 어노테이션
 @RestController //해당 클래스가  RestController 임을 명시
 @RequestMapping("/member") // 공통 URL 매핑주소
 public class MemberController {
     //----------------------------------------전역 객체---------------------------------------------------//
     @Autowired // 제어역전 [ DI ] 스프링 컨테이너 위임 스프링 컨테이너 빈 생성 [ 외부에 메모리 위임 ]
     private MemberService memberService;
-
-    //----------------------------------------HTML반환 매핑---------------------------------------------------//
+    //----------------------------------------HTML반환 매핑 * react사용시 불필요 ---------------------------------------------------//
+/*
     @GetMapping("/signup")
     public Resource getsignup() {
         return new ClassPathResource("templates/member/signup.html");//프로젝트내 resource ->templates->member->signup.html반환
@@ -43,6 +43,7 @@ public class MemberController {
         return new ClassPathResource("templates/member/update.html");
     }
 
+*/
 
     //----------------------------------------서비스 매핑---------------------------------------------------//
     @PostMapping("/setmember")//restful api 회원가입

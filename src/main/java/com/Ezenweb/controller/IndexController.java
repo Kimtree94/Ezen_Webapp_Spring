@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class IndexController {
-    @GetMapping("/")
-    public Resource getloginMno(){
-        return new ClassPathResource("templates/index.html");
-    }
+    /*리액트 사용시 불필요 */
+//    @GetMapping("/")
+//    public Resource getloginMno(){
+//        return new ClassPathResource("templates/index.html");
+//    }
 }
