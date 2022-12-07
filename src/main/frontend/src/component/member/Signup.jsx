@@ -13,7 +13,15 @@ function Signup( props ){ // * 회원가입 컴포넌트 *
         //  @CrossOrigin(origins = "http://localhost:3000")
         axios           // 3. axios 비동기통신 이용한 서버[spring] 통신
             .post( "http://localhost:8080/member/setmember" ,  info )   // 요청
-            .then( res => { alert( res.data) } )                        // 응답
+            .then( res => {
+                let result =res.data;
+                if(result!=0){
+                    alert("회원 가입 성공스")
+                }else{
+                    alert("회원 가입 실패스")
+                }
+            })
+            .catch(err=>{console.log(err)})// 응답
     }
     // 2. 인증코드 요청 함수
     const getauth = () => {   alert(" 클릭 이벤트 ")  }

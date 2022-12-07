@@ -18,6 +18,7 @@ import Footer from './Footer';
 import Signup from './member/Signup';
 import Login from './member/Login'
 import BoardList from "./board/BoardList";
+import BoardWrite from "./board/BoardWrite";
 
 //라우터 설치 [ 터미널 ] :npm i react-router-dom (i는 install의 약자)
 // import {모듈명} from 'react-router-dom'
@@ -39,6 +40,7 @@ export default function Index(props) {
                     <Route path="/member/signup" element={<Signup/>}></Route>
                     <Route path="/member/login" element={<Login/>}></Route>
                     <Route path="/board/list" element={<BoardList/>}></Route>
+                    <Route path="/board/write" element={<BoardWrite/>}></Route>
                 </Routes>
                 <Footer/>
             </BrowserRouter>
