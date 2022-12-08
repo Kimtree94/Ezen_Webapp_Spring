@@ -7,25 +7,41 @@ import axios from 'axios';//react 비동기 통신 라이브러리
 //2.
 export default function Header(props) {
 
-    const[login,setLogin]=useState(null);
+    const [login, setLogin] = useState(null);
     // 로그인된 회원정보 state 생명주기 주입
     // 변경시 재 랜더링
 
     axios
         .get("/member/getloginMno")
-        .then((response)=>{setLogin(response.data);})
+        .then((response) => {
+            setLogin(response.data);
+        })
+
 
     return (
-        <div >
+        <div>
             <div className="header">
                 <div className="header_logo">
                     <Link to="/"><img className="logo" src={logo}></img></Link>
                 </div>
                 <ul className="top_menu">
-                    <li>{login}</li>
-                    <li><Link to="/member/signup">회원가입</Link></li>
-                    <li><Link to="/member/login">로그인</Link></li>
-                    <li><a href="/member/logout">로그아웃</a></li>
+
+                    {login == "" ?
+                        (
+                            <>
+                                <li><Link to="/member/signup">회원가입</Link></li>
+                                <li><Link to="/member/login">로그인</Link></li>
+                            </>
+                        )
+                        :
+                        (
+                            <>
+                                <li>{login}</li>
+                                <li><a href="/member/logout">로그아웃</a></li>
+                                <li><Link to="/book/list"> 리액트 공부방 </Link></li>
+                            </>
+                        )
+                    }
                     <li><Link to="/board/write">자유게시판</Link></li>
                 </ul>
             </div>
@@ -48,3 +64,11 @@ export default function Header(props) {
 
 
 //axiox.get ('URL').then( res =>{응답} )
+
+/*
+    가상 DOM 작성시 주의점
+        1. <태그명></태그명> , <태그명/>
+
+        return(<button type=""></button>)
+
+ */

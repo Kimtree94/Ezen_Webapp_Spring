@@ -19,10 +19,17 @@ import Signup from './member/Signup';
 import Login from './member/Login'
 import BoardList from "./board/BoardList";
 import BoardWrite from "./board/BoardWrite";
-
+import Library from "../Book/chapter3/Library";
+import Clock from "../Book/chapter4/Clock";
+import CommentList from "../Book/chapter5/CommentList";
+import NotificationList from "../Book/chapter6/NotificationList";
+import Accommodate from "../Book/chapter7/Accommodate";
+import ConfirmButton2 from "../Book/chapter8/ConfirmButton2";
+import LandingPage from "../Book/chapter9/LandingPage";
 //라우터 설치 [ 터미널 ] :npm i react-router-dom (i는 install의 약자)
 // import {모듈명} from 'react-router-dom'
 import {HashRouter, BrowserRouter, Routes, Route, Link, Router} from "react-router-dom";
+import BookList from "../Book/BookList";
 //BrowserRouter : 가상 URL
 // vs HashRouter :
 //Routes :  Route 목록/리스트
@@ -41,6 +48,14 @@ export default function Index(props) {
                     <Route path="/member/login" element={<Login/>}></Route>
                     <Route path="/board/list" element={<BoardList/>}></Route>
                     <Route path="/board/write" element={<BoardWrite/>}></Route>
+                    <Route path="/book/list" element={ <BookList /> } />
+                    <Route path="/book/chapter3" element={<Library/>} />
+                    <Route path="/book/chapter4" element={<Clock/>} />
+                    <Route path="/book/chapter5" element={<CommentList/>} />
+                    <Route path="/book/chapter6" element={<NotificationList/>} />
+                    <Route path="/book/chapter7" element={<Accommodate/>} />
+                    <Route path="/book/chapter8" element={<ConfirmButton2/>} />
+                    <Route path="/book/chapter9" element={<LandingPage/>} />
                 </Routes>
                 <Footer/>
             </BrowserRouter>

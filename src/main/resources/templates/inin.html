@@ -78,7 +78,9 @@
             width: 100%;
             height: 100%;
         }
-
+        .showSkill{
+            display: none;
+        }
 
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -149,37 +151,37 @@
     </table>
     <br><br>
     <h1 class="text">💻_Skills</h1>
-    <div class="row">
-        <img style="width: 90px;margin-bottom: 20px;"
+    <div class="showSkill" onclick="showSkill()">
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/JSP-E34F26?style=flat-square&logo=Java&logoColor=white"></th>
 
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-        <img style="width: 90px;margin-bottom: 20px;"
+        <img style="width: 120px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-        <img style="width: 118px;height:52px;margin-bottom: 20px;"
+        <img style="width: 120px;height:65px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
 
 
-        <img style="width: 118px;height:52px;margin-bottom: 20px;"
+        <img style="width: 118px;height:65px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-        <img style="width: 118px;height:52px;margin-bottom: 20px;"
+        <img style="width: 118px;height:65px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/Notion-7B42BC?style=flat-square&logo=Notion&logoColor=white">
-        <img style="width: 118px;height:52px;margin-bottom: 20px;"
+        <img style="width: 120px;height:65px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/Eclipse%20IDE-2C2255.svg?&style=for-the-badge&logo=Eclipse%20IDE&logoColor=white">
-        <img style="width: 118px;height:52px;margin-bottom: 20px;"
+        <img style="width: 120px;height:65px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJ%20IDEA&logoColor=white">
-        <img style="width: 118px;height:52px;margin-bottom: 20px;"
+        <img style="width: 120px;height:65px;margin-bottom: 20px; height: 39px;"
              src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
     </div>
     <br><br>
@@ -235,7 +237,7 @@
     </div>
     <br>
 
-    <h1 class="text">🔥Project</h1>
+    <h1 class="text">Project_I_made✍</h1>
     <table class="table table-striped">
         <tr>
             <th class="col-sm-4">2022.09.01~2022.09.05 JS로 구현한 오목</th>
@@ -354,6 +356,14 @@
             swh = true;
         }
     });
+
+    function showSkill(){
+        let showSkill = document.querySelector('.showSkill')
+
+        showSkill.addEventListener('click',function () {
+            showSkill.style.display='flex'
+        })
+    }
 </script>
 </body>
 </html>
