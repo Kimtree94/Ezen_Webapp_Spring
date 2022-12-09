@@ -26,6 +26,15 @@ function BookList(props) {
             <button>
                 <Link to="/book/chapter9">chapter9</Link>
             </button>
+            <button>
+                <Link to="/book/chapter10">chapter10</Link>
+            </button>
+            <button>
+                <Link to="/book/chapter11">chapter11</Link>
+            </button>
+            <button>
+                <Link to="/book/chapter11-1">chapter11-1</Link>
+            </button>
         </>
     );
 }

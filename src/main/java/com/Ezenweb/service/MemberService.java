@@ -117,15 +117,20 @@ public class MemberService
     // --------------------------------서비스 메소드-----------------------------------///
     //로그인된 엔티티 호출
     public MemberEntity getEntity() {
-        // 로그인 정보 확인 [ 세션 ]
-        Object object = request.getSession().getAttribute("loginMno");
+        // 로그인 정보 확인 [ 세션 ] * 시큐리티 쓰기 전
+//        Object object = request.getSession().getAttribute("loginMno");
+
+        Object object = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         if (object == null) {
             return null;
         }
         // 로그인된 회원정보 호출
-        int mno = (Integer) object;
+//        int mno = (Integer) object;
+        MemberDto memberDto = (MemberDto)object;
         // 회원번호 ---> 회원정보 호출
-        Optional<MemberEntity> optional = memberRepository.findById(mno);
+//        Optional<MemberEntity> optional = memberRepository.findById(mno);
+        Optional<MemberEntity> optional = memberRepository.findByMemail(memberDto.getMemail());
         if (!optional.isPresent()) {
             return null;
         }

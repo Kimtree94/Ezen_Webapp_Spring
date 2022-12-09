@@ -26,6 +26,9 @@ import NotificationList from "../Book/chapter6/NotificationList";
 import Accommodate from "../Book/chapter7/Accommodate";
 import ConfirmButton2 from "../Book/chapter8/ConfirmButton2";
 import LandingPage from "../Book/chapter9/LandingPage";
+import AttendanceBook from "../Book/chapter10/AttendanceBook";
+import Ex1_Form from "../Book/chapter11/Ex1_Form";
+import SignUp from "../Book/chapter11/SignUp";
 //라우터 설치 [ 터미널 ] :npm i react-router-dom (i는 install의 약자)
 // import {모듈명} from 'react-router-dom'
 import {HashRouter, BrowserRouter, Routes, Route, Link, Router} from "react-router-dom";
@@ -56,6 +59,9 @@ export default function Index(props) {
                     <Route path="/book/chapter7" element={<Accommodate/>} />
                     <Route path="/book/chapter8" element={<ConfirmButton2/>} />
                     <Route path="/book/chapter9" element={<LandingPage/>} />
+                    <Route path="/book/chapter10" element={<AttendanceBook/>} />
+                    <Route path="/book/chapter11" element={<Ex1_Form/>} />
+                    <Route path="/book/chapter11-1" element={<SignUp/>} />
                 </Routes>
                 <Footer/>
             </BrowserRouter>

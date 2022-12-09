@@ -116,8 +116,11 @@ public class BoardService {
     //게시물 쓰기
     @Transactional
     public boolean setboard(BoardDto boardDto) {
+        System.out.println("나와라sdasd");
+        System.out.println(boardDto);
         // 로그인 정보 확인 [ 세션 ]
-        MemberEntity memberEntity = memberService.getEntity();
+
+        MemberEntity memberEntity = memberService.getEntity(); // 시큐리티 적용하기전 로그인 섹션 호출
         if (memberEntity == null) {
             return false;
         }
