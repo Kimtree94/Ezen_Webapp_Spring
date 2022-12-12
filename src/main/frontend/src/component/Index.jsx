@@ -29,6 +29,8 @@ import LandingPage from "../Book/chapter9/LandingPage";
 import AttendanceBook from "../Book/chapter10/AttendanceBook";
 import Ex1_Form from "../Book/chapter11/Ex1_Form";
 import SignUp from "../Book/chapter11/SignUp";
+import BoardView from "./board/BoardView";
+
 //라우터 설치 [ 터미널 ] :npm i react-router-dom (i는 install의 약자)
 // import {모듈명} from 'react-router-dom'
 import {HashRouter, BrowserRouter, Routes, Route, Link, Router} from "react-router-dom";
@@ -51,7 +53,9 @@ export default function Index(props) {
                     <Route path="/member/login" element={<Login/>}></Route>
                     <Route path="/board/list" element={<BoardList/>}></Route>
                     <Route path="/board/write" element={<BoardWrite/>}></Route>
-                    <Route path="/book/list" element={ <BookList /> } />
+                    <Route path="/book/view/:bno" element={ <BoardView/> } />
+
+
                     <Route path="/book/chapter3" element={<Library/>} />
                     <Route path="/book/chapter4" element={<Clock/>} />
                     <Route path="/book/chapter5" element={<CommentList/>} />
