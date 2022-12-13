@@ -53,11 +53,15 @@ public class BoardController {
     // 1. 게시물 쓰기 [ 첨부파일 있을때 @RequestBody 지우기  ]
     @PostMapping("/setboard")
     public boolean setboard( BoardDto boardDto ){
+        System.out.println("확인하자잉");
+        System.out.println(boardDto);
         return boardService.setboard( boardDto);
     }
     // 2. 게시물 목록 조회 [ 페이징,검색 ]
     @PostMapping("/boardlist")
     public PageDto boardlist( @RequestBody PageDto pageDto  ){
+        System.out.println("확인하자잉 ");
+        System.out.println(pageDto);
         return boardService.boardlist( pageDto );
     }
     // 3. 게시물 개별 조회

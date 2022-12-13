@@ -2,6 +2,7 @@ package com.Ezenweb.domain.Dto;
 
 
 import lombok.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,5 @@ public class PageDto {
 
     @Builder.Default // 빌더 사용시 현재 객체가 기본적으로 할당
     private List<BoardDto> list = new ArrayList<BoardDto>();
-    private int startbtn;// 페이징 버튼 시작번호
-    private int endbtn; // 페이징 버튼 끝번호
     private Long totalBoards; //총 게시물 수
-
 }

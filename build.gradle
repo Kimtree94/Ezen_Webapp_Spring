@@ -55,7 +55,6 @@ task installReact(type: Exec) {
         commandLine "npm", "audit", "fix" commandLine 'npm', 'install'
     }
 }
-
 task buildReact(type: Exec) {
     dependsOn "installReact"
     workingDir "$frontendDir"

@@ -134,31 +134,25 @@ public class BoardService {
     }
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
-    public PageDto boardlist(PageDto pageDto){
-        Page<BoardEntity> elist = null; // 1. 페이징처리된 엔티티 리스트 객체 선언
-        Pageable pageable = PageRequest.of(  // 2.페이징 설정 [ 페이지시작 : 0 부터 ] , 게시물수 , 정렬
-                pageDto.getPage()-1 , 3 , Sort.by( Sort.Direction.DESC , "bno")  );
+    public PageDto boardlist( PageDto pageDto){
 
-        // 3. 검색여부 / 카테고리  판단 [ 통합 ]
-        elist = boardRepository.findbySearch( pageDto.getBcno() , pageDto.getKey() , pageDto.getKeyword() , pageable );
+        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 3 , Sort.by( Sort.Direction.DESC , "bno") );
 
-        // 프론트엔드에 표시할 페이징번호버튼 수
-        int btncount = 5;                               // 1.페이지에 표시할 총 페이지 버튼 개수
-        int startbtn = (pageDto.getPage()/btncount) * btncount +1;   // 2. 시작번호 버튼
-        int endbtn = startbtn + btncount-1;             // 3. 마지막번호 버튼
-        if( endbtn > elist.getTotalPages() ) endbtn =elist.getTotalPages();
+        Page<BoardEntity>  elist = boardRepository.findBySearch( pageDto.getBcno() , pageDto.getKey() , pageDto.getKeyword() , pageable ); // 3. 검색여부 / 카테고리  판단 [ 통합 ]
 
         List<BoardDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
         for( BoardEntity entity : elist ){ // 3. 변환
             dlist.add( entity.toDto() );
         }
+
         pageDto.setList( dlist  );  // 결과 리스트 담기
-        pageDto.setStartbtn( startbtn );
-        pageDto.setEndbtn( endbtn );
         pageDto.setTotalBoards( elist.getTotalElements() );
 
         return pageDto;
     }
+
+
+
     // 3. 게시물 개별 조회
     @Transactional
     public BoardDto getboard( int bno ){

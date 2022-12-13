@@ -9,7 +9,7 @@ export default function BoardList(){
     // [ ] : array/list     {  } : object/dto
     // ------------------------------  1. 게시물  -------------------------------------- //
     function getboardlist( ){ // 2. server : pageInfo 요청 => pageDto 응답 [ 실행조건 : 1. 렌더링될때 2.검색할때 3.카테고리선택 4.페이징 선택  ---> 일반 함수화 ]
-        axios   .post( "/board/boardlist" ,  pageInfo )
+        axios  .post( "/board/boardlist" ,  pageInfo )
             .then( res => {  console.log( res.data );  setPageDto( res.data );  } ).catch( err => { console.log( err ); } )
     }
     useEffect( getboardlist , [ pageInfo ] )  // 3. 렌더링 될때 그리고 *** pageInfo 변경될때 마다
@@ -47,7 +47,7 @@ export default function BoardList(){
 
     const loadView = ( bno ) => {
         window.location.href = '/board/view/'+bno
-    }
+         }
 
     return (
         <div>

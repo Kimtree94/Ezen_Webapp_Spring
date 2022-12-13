@@ -5,7 +5,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
     //1. 기본 메소드 외 메소드 추가
     //.findById(pk값 ) 해당 pk의 엔티티 하나 호출
@@ -40,11 +42,11 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
     Page<BoardEntity> findBybcno(int bcno, Pageable pageable);*/
 
     //1~3 통합
-    @Query( value = "SELECT * " +
-            "FROM " +
-            "board " +
-            "WHERE " +
-            "IF( :bcno = 0 , bcno like '%%' , bcno = :bcno  ) and " +
-            "IF( :key = '' , true , IF( :key = 'btitle' ,  btitle like %:keyword% , bcontent like %:keyword%  ) )" , nativeQuery = true )
-    Page<BoardEntity> findbySearch( int bcno , String key , String keyword , Pageable pageable);
+    @Query(value = "select * from board " +
+            "where  "+
+            "IF( :bcno = 0 , bcno like '%%' , bcno = :bcno ) and " +
+            "IF( :key = '' , true  , IF( :key = 'btitle' , btitle like %:keyword% , bcontent like %:keyword% ) ) "
+            , nativeQuery = true ) // nativeQuery: 실제 해당 SQL 질의어 사용 뜻
+    Page<BoardEntity> findBySearch(@Param("bcno") int bcno , @Param("key") String key , @Param("keyword")String keyword ,Pageable pageable);
+
 }

@@ -53,7 +53,7 @@ export default function Index(props) {
                     <Route path="/member/login" element={<Login/>}></Route>
                     <Route path="/board/list" element={<BoardList/>}></Route>
                     <Route path="/board/write" element={<BoardWrite/>}></Route>
-                    <Route path="/book/view/:bno" element={ <BoardView/> } />
+                    <Route path="/board/view/:bno" element={ <BoardView/> } />
 
 
                     <Route path="/book/chapter3" element={<Library/>} />
