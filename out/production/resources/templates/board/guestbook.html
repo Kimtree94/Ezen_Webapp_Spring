@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>guest book</title>
+
+
+
+</head>
+<body>
+<input type="text" class="gcatetitle" placeholder="카테고리추가">
+<button type="button" onclick="setgcategory()">추가하기</button><br>
+<div>
+    <table class="guestlist">
+
+    </table>
+</div>
+<h3>글작성시 카테고리를 선택후 작성해주세요</h3>
+<h3>카테고리별 글보기도 위에서 클릭해주세요ㅎ</h3>
+<div>
+    <form class="setgform">
+    제목 : <input type="text" name="gtitle" class="gtitle"><br>
+    내용 : <input type="text" name="gcontent" class="gcontent"><br>
+    작성자: <input type="text" name="gid" class="gid"><br>
+    첨부파일 : <input type="file" name="gfile" class="detail_gfile"><br>
+    <button type="button" onclick="setgboard()">등록</button>
+    </form>
+</div>
+<br>
+<form class="updateform">
+<h3>수정하기</h3>
+번호<input type="text" name="gbno" class="detail_no"><br>
+제목<input type="text"  name="gtitle" class="detail_title"><br>
+내용<input type="text" name="gcontent"  class="detail_content"><br>
+첨부파일 : <input type="file" name="gfile" class="detail_gfile"><br>
+<button type="button" onclick="gcorrection()">수정하기</button>
+</form>
+<div class="correction">
+
+</div>
+<table class="gboardlist">
+
+
+</table>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/js/Board/guestbook.js"></script>
+</body>
+</html>

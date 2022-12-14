@@ -67,6 +67,8 @@ public class BoardController {
     // 3. 게시물 개별 조회
     @GetMapping("/getboard")
     public BoardDto getboard( @RequestParam("bno") int bno ){
+        System.out.println("넘겨줘제발 개별조회");
+        System.out.println(bno);
         return boardService.getboard( bno );
     }
     // 4. 게시물 삭제

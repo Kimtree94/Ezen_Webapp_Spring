@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
@@ -46,7 +47,7 @@ public class BoardService {
     // private  BoardService boardService; // 불가능
 
     // 첨부파일 경로
-    String path = "C:\\";
+    String path = "C:\\upload\\";  // C드라이브-> upload 폴더 생성
     // @Transactional : 엔티티 DML 적용 할때 사용되는 어노테이션
     // 1. 메소드
             /*
@@ -86,8 +87,8 @@ public class BoardService {
 
     // * 첨부파일 업로드 [ 1. 쓰기메소드 2. 수정메소드 ] 사용
     @Transactional              //  boardDto : 쓰기,수정 대상     BoardEntity:원본
-    public boolean fileupload(BoardDto boardDto , BoardEntity boardEntity ){
-        if( boardDto.getBfile() != null ) { // ** 첨부파일 있을때
+    public boolean fileupload( BoardDto boardDto , BoardEntity boardEntity ){
+        if( !boardDto.getBfile().getOriginalFilename().equals("") ) { // ** 첨부파일 있을때
             // * 업로드 된 파일의 이름 [ 문제점 : 파일명 중복 ]
             String uuid = UUID.randomUUID().toString(); // 1. 난수생성
             String filename = uuid + "_" + boardDto.getBfile().getOriginalFilename(); // 2. 난수+파일명
@@ -109,7 +110,6 @@ public class BoardService {
     public boolean setboard( BoardDto boardDto ){
         // ---------- 로그인 회원 찾기 메소드 실행 --> 회원엔티티 검색 --------------  //
         MemberEntity memberEntity = memberService.getEntity(); // * 시큐리티 적용하기 전/후 확인
-
         if( memberEntity == null ){ return false; }
         // ---------------------------- //
         // ------------ 선택한 카테고리 번호 --> 카테고리 엔티티 검색 --------------  //
@@ -119,9 +119,7 @@ public class BoardService {
         // --------------------------  //
         BoardEntity boardEntity  = boardRepository.save( boardDto.toEntity() );  // 1. dto --> entity [ INSERT ] 저장된 entity 반환
         if( boardEntity.getBno() != 0 ){   // 2. 생성된 entity의 게시물번호가 0 이 아니면  성공
-
             fileupload( boardDto , boardEntity ); // 업로드 함수 실행
-
             // 1. 회원 <---> 게시물 연관관계 대입
             boardEntity.setMemberEntity( memberEntity ); // ***!!!! 5. fk 대입
             memberEntity.getBoardEntityList().add( boardEntity); // *** 양방향 [ pk필드에 fk 연결 ]
@@ -150,9 +148,6 @@ public class BoardService {
 
         return pageDto;
     }
-
-
-
     // 3. 게시물 개별 조회
     @Transactional
     public BoardDto getboard( int bno ){
@@ -170,13 +165,11 @@ public class BoardService {
         Optional<BoardEntity> optional = boardRepository.findById( bno);
         if( optional.isPresent() ){
             BoardEntity boardEntity =  optional.get();
-
             // 첨부파일 같이 삭제
             if( boardEntity.getBfile() != null ) {   // 기존 첨부파일 있을때
                 File file = new File(path + boardEntity.getBfile()); // 기존 첨부파일 객체화
                 if (file.exists()) {   file.delete(); }           // 존재하면  /// 파일 삭제
             }
-
             boardRepository.delete( boardEntity ); // 찾은 엔티티를 삭제한다.
             return true;
         }else{ return false; }
@@ -190,7 +183,7 @@ public class BoardService {
             BoardEntity boardEntity = optional.get();
 
             // 1. 수정할 첨부파일이 있을때    ----> 새로운 첨부파일 업로드 , db 수정한다.
-            if( boardDto.getBfile() != null ){      // boardDto : 수정할정보   boardEntity : 원본[db테이블]
+            if( !boardDto.getBfile().getOriginalFilename().equals("") ){      // boardDto : 수정할정보   boardEntity : 원본[db테이블]
                 if( boardEntity.getBfile() != null ) {   // 기존 첨부파일 있을때
                     File file = new File(path + boardEntity.getBfile()); // 기존 첨부파일 객체화
                     if (file.exists()) {   file.delete(); }           // 존재하면  /// 파일 삭제
@@ -229,6 +222,7 @@ public class BoardService {
             System.out.println( e.toString() );
         }
         entityList.forEach( e -> e.toString()  );
+
  */
 
 
@@ -241,21 +235,28 @@ public class BoardService {
 
 
 /*
+
             // 1. MultipartFile 인터페이스
                 // .getOriginalFilename() : 해당 인터페이스에 연결(주소)된 파일의 이름 호출
                 // .transferTo() : 파일이동[ 사용자pc ---> 개발자 pc ]
                     // .transferTo( 파일객체 )
                     // File : java 외 파일을 객체화 클래스
                         // new File("경로") : 해당 경로의 파일을 객체화
+
+
+
  */
 
 
 
 
 /*
+
+
             // 1. Pageable 인터페이스  [ import 사용시 domain 패키지 ]
             // 2. PageRequest 구현클래스
                 // 1.PageRequest.of( 현재페이지번호 , 표시할레코드수 )
+
  */
 
 

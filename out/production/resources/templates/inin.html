@@ -1,0 +1,420 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>새로운 개발자 김원종 </title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/OtHyW2q.jpeg">
+    <style>
+        .endment {
+            text-align: center;
+        }
+
+        .endgif {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        @font-face {
+            font-family: 'LINESeedKR-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'LINESeedKR-Bd';
+            line-height: 180%;
+        }
+
+        .text {
+            color: gray;
+        }
+
+        .title1 {
+            width: 245%;
+            text-align: center;
+            color: rebeccapurple;
+            border-bottom: 1px solid #c0c0c0;
+            border-radius: 50%;
+            margin-bottom: 28px;
+        }
+
+        .title2 {
+            text-align: center;
+            margin-left: 430px;
+            margin-top: 25px;
+        }
+
+
+        #liveToastBtn {
+            display: none;
+        }
+
+        .gold {
+            color: gold;
+            font-weight: bold;
+        }
+
+        .myprofile {
+            width: 80%;
+            height: 250px;
+            border-radius: 10%;
+            left: 200px;
+        }
+
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            transform: scale(3) !important;
+            transition-duration: 0.5s !important;
+            color: orange !important;
+        }
+
+        .carousel {
+            width: 1000px;
+            height: 680px;
+        }
+
+        .carousel-item {
+            width: 100%;
+            height: 100%;
+        }
+
+        .showSkill {
+            display: flex;
+            justify-content: space-around;
+        }
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+
+            <h1 class="text title1"> ️Introduce :<br>
+                my_self</h1>
+        </div>
+        <img class="myprofile " src="https://t1.daumcdn.net/cfile/tistory/2332AB46583234AF11">
+        <div class="col-sm-8">
+            <h1 class="text title2">👨‍💻Who_this_man?</h1><br>
+            <h1>
+
+
+            </h1>
+            <p>
+                반갑습니다. 새로운 개발자 개린이 김원종입니다.<br>
+            </p>
+        </div>
+    </div>
+
+    <table class="table  table-hover">
+        <tr>
+            <th class="text col-sm-4">🐣BirthDay</th>
+            <td class="col-sm-8">
+                🤚_my gender is male💪 1994_10_11 🐶
+            </td>
+        </tr>
+        <tr>
+            <th class="text col-sm-4">✉️_Email</th>
+            <td class="col-sm-8">➡ mz1693@naver.com</td>
+        </tr>
+        <tr>
+            <th class="text col-sm-4">📱_Phone</th>
+            <td class="col-sm-8">➡ 010.9771.1693</td>
+        </tr>
+        <tr>
+            <th class="text col-sm-4">🖥️_Github</th>
+            <td class="col-sm-8">➡ <a href="https://github.com/Kimtree94">https://github.com/Kimtree94</a></td>
+        </tr>
+        <!--        <tr><th class="text col-sm-4">Velog</th> <td class="col-sm-8">➡ <a href="https://velog.io/@kinndohyun"> https://velog.io/@kinndohyun</a></td></tr>-->
+        <!--        <tr><th class="text col-sm-4">Coding test level : <span class="gold">Gold5</span></th> <td class="col-sm-8">➡ <a href="https://solved.ac/profile/ehehwhdwhd">https://solved.ac/profile/ehehwhdwhd</a></td></tr>-->
+    </table>
+    <br>
+
+    <table class="table table-striped">
+        <h1 class="text">👨‍🎓Education</h1>
+        <tr>
+            <th class="col-sm-4">2014_02~.2016_02</th>
+            <th class="col-sm-4">백석예술대학교_실용음악과_졸업🎤</th>
+            <th class="col-sm-4">학점 4.3 / 4.5</th>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2022.08~2022.12</th>
+            <th class="col-sm-4">⌨️_이젠컴퓨터아카데미 Web_App개발과정 수강</th>
+            <th class="col-sm-4"></th>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2021_3_17~2021_6_23</th>
+            <th class="col-sm-4">👨‍🎓_해밀교육원_경영학부_경영학사취득</th>
+            <th class="col-sm-4">✍️_2021_12_13_경영학사_취득</th>
+        </tr>
+    </table>
+    <br><br>
+    <h1 class="text">💻_Skills</h1>
+    <div class="showSkill" onclick="showSkill()">
+        <a href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
+        </a>
+        <a href="https://melonicedlatte.com/2021/07/11/174700.html">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+        </a>
+        <a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/What_is_JavaScript">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+        </a>
+        <a href="https://javacpro.tistory.com/43">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/JSP-E34F26?style=flat-square&logo=Java&logoColor=white"></th>
+        </a>
+
+        <a href="https://webclub.tistory.com/491">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+        </a>
+        <a href="http://www.tcpschool.com/css/css_intro_basic">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+        </a>
+
+        <a href="https://velog.io/@jini_eun/React-React.js%EB%9E%80-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
+        </a>
+        <a href="http://www.tcpschool.com/mysql/mysql_intro_intro">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+        </a>
+        <a href="https://7942yongdae.tistory.com/13">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+        </a>
+
+
+        <a href="https://velog.io/@jini_eun/Github-Github%EB%9E%80-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC">
+            <img style="width: 70px;;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+        </a>
+        <a href="https://shinkimi0i8.tistory.com/16">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/Notion-7B42BC?style=flat-square&logo=Notion&logoColor=white">
+        </a>
+        <a href="https://blog.naver.com/PostView.naver?blogId=rla99tjr&logNo=221868025025&parentCategoryNo=&categoryNo=26&viewDate=&isShowPopularPosts=true&from=search">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/Eclipse%20IDE-2C2255.svg?&style=for-the-badge&logo=Eclipse%20IDE&logoColor=white">
+        </a>
+        <a href="https://namu.wiki/w/IntelliJ%20IDEA">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJ%20IDEA&logoColor=white">
+        </a>
+        <a href="https://ict-nroo.tistory.com/21">
+            <img style="width: 70px;margin-bottom: 20px; height: 29px;"
+                 src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+        </a>
+
+    </div>
+    <br><br>
+    <h1 class="text">✨My_Career✨</h1>
+    <table class="table table-striped">
+        <tr>
+            <th class="col-sm-4">가수 서문탁 교수 사사 및 개인공연 코러스</th>
+            <td class="col-sm-8" rowspan="2">
+                처음 보는 사람들과 합을 맞추고
+                누군가를 서포트하는것을 배웠고 코러스를 하며 팀원들간의 합이 맞아야
+                좋은 결과나 나온다는것을 알수있는 경험이 였습니다
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2015/04~2015/07</th>
+        </tr>
+        <tr>
+            <th class="col-sm-4">개인레슨 취미 및 입시지도</th>
+            <td class="col-sm-8" rowspan="2">
+                처음보는 사람과 이야기를 이어나가야하는데 있어 어려움이 있었지만 점점 사람들과 대화하는
+                방법을 배우고 그사람이 원하는점 내가 부족한점을 스스로 생각할수 있는 시간이였습니다.
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2014.06~2017.04</th>
+        </tr>
+        <tr>
+            <th class="col-sm-4">sams아카데미 보컬트레이너</th>
+            <td class="col-sm-8" rowspan="2">
+                정해진 시간과 시스템안에서 지도하면서 체계적으로 움직일수 있다는것을 배웠고
+                제가 부족하고 모르는점은 선배들에게 배울수있었습니다.누군가에게 도움을 주고 도움을 받고
+                그 도움과 저의 정보를 조합해서 문제를 해결해나갈수있다는점을 배울수있었습니다.
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2017.04~2020.05</th>
+        </tr>
+        <tr>
+            <th class="col-sm-4">LH한국주택관리 관리업무</th>
+            <td class="col-sm-8" rowspan="2">
+                제가 해오던일과는 다른 경험을 느꼈고 이 기간에 사용했던 프로그램 시스템이 관리하던 목록이
+                없으면 본사에 연락하여 항목을 추가해달라고 했었는데 그때부터 웹에 궁금증이 생겼습니다.
+                이 시스템은 어떻게 만들어졌고 누가 목록을 등록하고 그게 어떻게 추가되는건지 본사말고 직원이
+                직접 추가할수있게 만들수는 없는지 라는 궁금증으로 개발공부를 시작하게되었습니다.
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2021.04~2022.05</th>
+        </tr>
+    </table>
+    <br><br>
+    <div class="row justify-content-md-center">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gCBzZfvebfI"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <br>
+
+    <h1 class="text">What_did_you_make😏</h1>
+    <table class="table table-striped">
+        <tr>
+            <th class="col-sm-4">2022.08.25~2022.08.31_카페 소개 페이지</th>
+            <td class="col-sm-8" rowspan="2">👨‍💻_Skill : Html , Css , JavaScript <br> 한달동안 배운 내용들로 디자인을 접목한 카페 소개 페이지를 만들었습니다.
+
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a
+                    href="https://github.com/dohyun2im/1month_team">Git</a>
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2022.09.23~2022.10.05_PC방 관리 페이지 구현</th>
+            <td class="col-sm-8" rowspan="2">👨‍💻_Skill : Html , Css , JavaScript <br> 한달동안 배운 내용들로 디자인을 접목한 카페 소개 페이지를 만들었습니다.
+
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a
+                    href="https://github.com/dohyun2im/1month_team">Git</a>
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">2022.10.24~2022.11.14 JSP 사내 메신저 및 게시판 ,관리자 기능</th>
+            <td class="col-sm-8" rowspan="4">👨‍💻_Skill : Jsp , Css , JavaScript , Java , Notion , Git , Bootstrap , JQuery
+                , Eclipse<br> 팀원들과 함께 첫 프로젝트를 진행했습니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a href="https://github.com/gella11/TeamProject-Chatting">Git</a></td>
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a
+                    href="https://better-colby-39d.notion.site/Company-Management-JSP-Web-Project-3250a8aba2fb4c4e90083e2da66ac3aa">Notion</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a href="https://www.youtube.com/watch?v=gCBzZfvebfI">시연 영상</a></td>
+        </tr>
+
+        <tr>
+            <th class="col-sm-4">2021.12.01~2022.12.28 Spring 지역 익명 게시판</th>
+            <td class="col-sm-8" rowspan="4">💻 개발환경 : Spring , IntelliJ , Css , JavaScript , React.js , Java , Notion ,
+                Git , Bootstrap<br> 팀원들과 함께 지역 익명 게시판을 주제로 지도 위에 글을 띄웠습니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a href="https://github.com/gella11/TeamProject-Chatting">Git</a></td>
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a href="https://substantial-opal-c3a.notion.site/c4cc52db97954302adb8e1ded9b3dbc9">Notion</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-4"><a href="https://www.youtube.com/watch?v=gCBzZfvebfI">배포</a></td>
+        </tr>
+    </table>
+    <br><br>
+
+    <h1 class="text">👀대외 및 교외활동</h1>
+    <table class="table table-striped">
+        <tr>
+            <th class="col-sm-4">군 스타트업 경진대회<br>2017.01~2017.03</th>
+            <td class="col-sm-8"></td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">안산 다문화가족행복나눔센터<br>2020.07~2020.08</th>
+            <td class="col-sm-8"></td>
+        </tr>
+        <tr>
+            <th class="col-sm-4">안산시청 주관 우리가 만나는 안산 정책 만들기<br>2020.08~2020.11</th>
+            <td class="col-sm-8"></td>
+        </tr>
+    </table>
+    <br><br>
+
+</div>
+<button type="button" class="btn btn-primary" id="liveToastBtn">인사</button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img width="20px" src="https://i.imgur.com/OtHyW2q.jpeg" class="rounded me-2">
+            <strong class="me-auto">김원종</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <img class="endgif" src="https://t1.daumcdn.net/cfile/tistory/99C9493C5F32979520">
+            <p class="endment">끝까지 읽어주셔서 정말 감사합니다!<br>
+                새로운 인연을 되기를 희망합니다.</p>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+<script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+    if (toastTrigger) {
+        toastTrigger.addEventListener('click', () => {
+            const toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+        })
+    }
+
+    let swh = false;
+    window.addEventListener('scroll', () => {
+        console.log(window.scrollY)
+        document.querySelector('#liveToastBtn').click();
+        swh = true;
+    })
+
+
+
+
+</script>
+</body>
+</html>

@@ -13,63 +13,71 @@
 
 import React from 'react';
 import Header from './Header';
-import Home from './member/Home';
+import Home from './Home';
 import Footer from './Footer';
 import Signup from './member/Signup';
-import Login from './member/Login'
-import BoardList from "./board/BoardList";
-import BoardWrite from "./board/BoardWrite";
-import Library from "../Book/chapter3/Library";
-import Clock from "../Book/chapter4/Clock";
-import CommentList from "../Book/chapter5/CommentList";
-import NotificationList from "../Book/chapter6/NotificationList";
-import Accommodate from "../Book/chapter7/Accommodate";
-import ConfirmButton2 from "../Book/chapter8/ConfirmButton2";
-import LandingPage from "../Book/chapter9/LandingPage";
-import AttendanceBook from "../Book/chapter10/AttendanceBook";
-import Ex1_Form from "../Book/chapter11/Ex1_Form";
-import SignUp from "../Book/chapter11/SignUp";
-import BoardView from "./board/BoardView";
+import Login from './member/Login';
+import BoardList from './board/BoardList';
+import BoardWrite from './board/BoardWrite';
+import BoardView from './board/BoardView';
+import BoardUpdate from './board/BoardUpdate';
 
-//라우터 설치 [ 터미널 ] :npm i react-router-dom (i는 install의 약자)
-// import {모듈명} from 'react-router-dom'
-import {HashRouter, BrowserRouter, Routes, Route, Link, Router} from "react-router-dom";
-import BookList from "../Book/BookList";
-//BrowserRouter : 가상 URL
-// vs HashRouter :
-//Routes :  Route 목록/리스트
-//Route : 가상 URL 만들기  --->  해당 URL 에 따른 컴포넌트 렌더링 [ SPA ]
-//Link : 리액트에서 사용하는 a태그라고 생각하면 됨  : 하이퍼 링크
-//Link to ="가상URL 경로" "Route URL"
-//Router :
-export default function Index(props) {
-    return (
+
+import BookList from '../Book/BookList';
+
+import Library from '../Book/chapter3/Library' // 3장
+import Clock from '../Book/chapter4/Clock' // 4장
+import CommentList from '../Book/chapter5/CommentList' // 5장
+import NotificationList from '../Book/chapter6/NotificationList' // 6장
+import Accommodate from '../Book/chapter7/Accommodate' // 7장
+import ConfirmButton2 from '../Book/chapter8/ConfirmButton2' // 8장
+import TestState from '../Book/chapter8/TestState' // 8장
+import LandingPage from '../Book/chapter9/LandingPage' // 9장
+import AttendanceBook from '../Book/chapter10/AttendanceBook' // 10장
+import SignUp from '../Book/chapter11/SignUp' // 10장
+
+// 라우터 설치[ 터미널 ] : npm i react-router-dom == npm install react-router-dom
+// import { 컴포넌트명 } from 'react-router-dom'; v6
+import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-router-dom";
+// BrowserRouter : 가상 URL
+//  vs HashRouter :
+// Routes :  Route 목록/리스트
+// Route :  가상 URL 만들기 --> 해당 URL 에 따른 컴포넌트 렌더링 [ SPA ]
+// Link :   <---> a 태그  : 하이퍼링크
+// Link to = "Route Path"
+// Router :
+export default function Index( props ){
+    return  (
         <div className="webbox">
             <BrowserRouter>
                 <Header/>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/member/signup" element={<Signup/>}></Route>
-                    <Route path="/member/login" element={<Login/>}></Route>
-                    <Route path="/board/list" element={<BoardList/>}></Route>
-                    <Route path="/board/write" element={<BoardWrite/>}></Route>
-                    <Route path="/board/view/:bno" element={ <BoardView/> } />
+                    <Route path="/" element = { <Home /> } />
+                    <Route path="/member/signup" element={ <Signup/> } />
+                    <Route path="/member/login" element={ <Login/> } />
+                    <Route path="/board/list" element={ <BoardList/> } />
+                    <Route path="/board/write" element={ <BoardWrite/> } />
+                    <Route path="/board/view/:bno" element={<BoardView/>} />
+                    <Route path="/board/update/:bno" element={ <BoardUpdate/> } />
 
-
-                    <Route path="/book/chapter3" element={<Library/>} />
-                    <Route path="/book/chapter4" element={<Clock/>} />
-                    <Route path="/book/chapter5" element={<CommentList/>} />
-                    <Route path="/book/chapter6" element={<NotificationList/>} />
-                    <Route path="/book/chapter7" element={<Accommodate/>} />
-                    <Route path="/book/chapter8" element={<ConfirmButton2/>} />
-                    <Route path="/book/chapter9" element={<LandingPage/>} />
-                    <Route path="/book/chapter10" element={<AttendanceBook/>} />
-                    <Route path="/book/chapter11" element={<Ex1_Form/>} />
-                    <Route path="/book/chapter11-1" element={<SignUp/>} />
+                    <Route path="/book/list" element={ <BookList/> } />
+                    <Route path="/chapter3/Library" element = { <Library /> } />
+                    <Route path="/chapter4/Clock" element={ <Clock/> } />
+                    <Route path="/chapter5/CommentList" element={ <CommentList/> } />
+                    <Route path="/chapter6/NotificationList" element={ <NotificationList/> } />
+                    <Route path="/chapter7/Accommodate" element={ <Accommodate/> } />
+                    <Route path="/chapter8/ConfirmButton2" element={ <ConfirmButton2/> } />
+                    <Route path="/chapter9/LandingPage" element={ <LandingPage/> } />
+                    <Route path="/chapter10/AttendanceBook" element={ <AttendanceBook/> } />
+                    <Route path="/chapter11/SignUp" element={ <SignUp/> } />
                 </Routes>
                 <Footer/>
             </BrowserRouter>
         </div>
     );
-
 }
+
+
+
+
+

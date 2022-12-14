@@ -33,6 +33,7 @@ dependencies {
 
 /* 스프링부트 빌드시 리액트도 같이 빌드 */
 
+
 def frontendDir = "$projectDir/src/main/frontend" // 리액트의 경로
 
 sourceSets {
