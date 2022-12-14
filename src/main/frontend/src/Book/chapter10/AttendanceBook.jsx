@@ -1,31 +1,16 @@
+// p.300 리스트와 키
 import React from "react";
 
-//p300
+const students=[{id:1, name : "Soohyun"} , {id:2 ,name : "Steve"}, {id:3, name : "Bill"}, {id:4 , name : "Jeff"}]
 
-const students =[
-    {  id : 1, name:"Inje"},
-    {
-        id : 2,
-        name:"Steve"
-    },
-    {
-        id : 3,
-        name:"bill"
-    },
-    {
-        id : 4,
-        name:"Jeff"
-    },
-];
+export default function AttendanceBook(props){
+    // jsx 표현식 { JS 코드 }
 
-function AttendanceBook(props){
     return(
-        <ul>
-            {students.map((students)=>{
-                return<li>{students.name}</li>;
-            })}
-        </ul>
+      <ul>
+          {
+              students.map((s)=>{return <li key={s.id}>{s.name}</li>})
+          }
+      </ul>
     );
 }
-
-export default AttendanceBook;

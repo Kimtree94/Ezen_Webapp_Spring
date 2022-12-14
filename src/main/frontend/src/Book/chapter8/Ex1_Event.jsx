@@ -1,33 +1,29 @@
-//p.249
-//1. 컴포넌트 처슬자 대문자
-//2. 클래스컴포넌트 / 함수컴포넌트
+// p.249
 import React from "react";
+class Ex1_Event extends React.Component{
 
-class Ex1_Event extends React.Component { //클래스형 컴포넌트
-
-    /*----------------------------------1------------------------------*/
-    //1.생성자
+    // 1. 생성자
     constructor(props) {
-        super();
-        this.state = {isToggleOn: true};//state 생명주기 즉 메모리 관리
+        super(props);
+        this.state={isToggleOn : true}; // state 생명주기 - 메모리 관리
+        this.handleClick=this.handleClick.bind(this);
     }
 
-    //2.이벤트 함수
-    handleClick() { // prevState : state 값
-        this.setState(prevState => ({isToggleOn: !prevState.isToggleOn}));
+    // 2. 이벤트 함수
+    handleClick(){
+        this.setState((prevState)=>({isToggleOn : !prevState.isToggleOn}))
     }
 
-
-
-    //2.렌더링 함수
+/*    handleClick=()=>{
+        this.setState((prevState)=>({isToggleOn : !prevState.isToggleOn}))
+    }*/
+    // 3. 렌더링 함수
     render() {
-        return (
+        return(
             <button onClick={this.handleClick}>
-                {this.state.isToggleOn ? '켜짐' : '꺼짐'}
+                {this.state.isToggleOn}
             </button>
         );
     }
 }
-
-
 export default Ex1_Event;
