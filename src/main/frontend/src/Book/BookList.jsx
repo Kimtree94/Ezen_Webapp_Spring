@@ -13,8 +13,9 @@ export default function BookList(props){
           <button><a href="/book/chapter8">chapter8</a></button>
           <button><a href="/book/chapter9">chapter9</a></button>
           <button><a href="/book/chapter10">chapter10</a></button>
-          <button><a href="/book/chapter10/NameForm">NameForm</a></button>
-          <button><a href="/book/chapter10/SignUp">SignUp</a></button>
+          <button><a href="/book/chapter11">NameForm</a></button>
+          <button><a href="/book/chapter11">SignUp</a></button>
+          <button><a href="/book/chapter12">Calculator</a></button>
       </div>
     );
 }

@@ -16,7 +16,7 @@ import TestState from "./Book/chapter8/TestState";
 import ConfirmButton from "./Book/chapter8/ConfirmButton";
 import ConfirmButton2 from "./Book/chapter8/ConfirmButton2";
 import LandingPage from "./Book/chapter9/LandingPage";
-
+import Calculator from "./Book/chapter12/Calculator";
 // 2. Dom 컨테이너 [public -> index.html 안에 있는 태그]
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -61,13 +61,12 @@ root.render(
 
 
 
-// 5.
+
 root.render(
     <React.StrictMode>
         <Index />
     </React.StrictMode>
 );
-
 
 
 
@@ -97,6 +96,15 @@ root.render(
     </React.StrictMode>
 );
 */
+
+/*
+root.render(
+    <React.StrictMode>
+        <Calculator />
+    </React.StrictMode>
+);
+*/
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

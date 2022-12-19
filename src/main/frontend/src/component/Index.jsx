@@ -44,6 +44,7 @@ import SignUp from "../Book/chapter11/SignUp";
 import BoardView from "./board/BoardView"
 import BoardUpdate from "./board/BoardUpdate";
 import Chatting from "./chatting/Chatting";
+import Calculator from "../Book/chapter12/Calculator";
 // 라우터 설치
 // import {컴포넌트명} from 'react-router-dom' : V6
 import {HashRouter,BrowserRouter , Routes , Route , Link, Router} from 'react-router-dom';
@@ -72,8 +73,9 @@ export default function Index(props){
                     <Route path="/book/chapter8" element={<TestState/>} />
                     <Route path="/book/chapter9" element={<LandingPage/>} />
                     <Route path="/book/chapter10" element={<AttendanceBook/>} />
-                    <Route path="/book/chapter10/NameForm" element={<NameForm/>} />
-                    <Route path="/book/chapter10/SignUp" element={<SignUp/>} />
+                    <Route path="/book/chapter11/Ex1_Form" element={<NameForm/>} />
+                    <Route path="/book/chapter11/SignUp" element={<SignUp/>} />
+                    <Route path="/book/chapter12" element={<Calculator/>}/>
                 </Routes>
                 <Footer/>
 

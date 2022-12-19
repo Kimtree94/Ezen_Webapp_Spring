@@ -92,8 +92,7 @@
             display: flex;
             justify-content: space-around;
         }
-
-        <img src="../../../../../../Desktop/KakaoTalk_Photo_2022-12-18-15-31-26.jpeg" height="960" width="720"/></style>
+        </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
@@ -307,7 +306,8 @@
         <tr>
             <th class="col-sm-4">2022.10.24~2022.11.14 JSP 사내 메신저 및 게시판 ,관리자 기능</th>
             <td class="col-sm-8" rowspan="4">👨‍💻_Skill : Jsp , Css , JavaScript , Java , Notion , Git , Bootstrap , JQuery
-                , Eclipse<br> 팀원들과 함께 첫 프로젝트를 진행했습니다.
+                , Eclipse<br> 팀원들과 함께 첫 프로젝트를 진행했습니다.<br>
+                소켓을 사용하여 1:1 1:n 실시간 채팅을 구현하고 친구추가 기능을 구현 / 사내게시판에 카테고리별 정렬과 사원관리 프로그램 구현
             </td>
         </tr>
         <tr>
@@ -374,6 +374,19 @@
                 귀사에 도움이 되는 인재가 되어 함께 발전해 나가고 싶습니다.
                 .</th>
         </tr>
+        <tr >
+            <th class="col-sm-4" style="width: 100%;text-align: center;font-size: 30px">지원동기</th>
+        </tr>
+        <tr>
+            <th class="col-sm-8 Show1" style="width: 100%;">
+                "내가 만들면 이렇게 해볼 거 같은데"  라는 생각을 시작했습니다. 제가 기전 기사로 일하면서 관리하는 시설물들을 본사에 보고하고 보수업체와 연결되는 시스템으로 업무를 하고 있었습니다.
+                그 과정 중에 보고하는 품목이나 업종이 없으면 본사에 직접 전화를해서 그 시스템을 추가해야 했는데 문득 그런 생각을 했습니다.
+                저 품종과 업종을 본사에 전송해주면 본 사내에 전송받은 데이터를 중복검사하고 조건에 맞게 추가해준다면? 이렇게 자동화가 된다면 직접 전화해야 하는 수고가 사라지지 않을까? 하는 생각이었습니다
+                . 하지만 제가 직접 바꿀 수 있는 위치가 아니었기에 그때부터 직접 도전해보는 게 어떨까 라고
+                판단하고 국비학원을 알아보고 900시간이라는 과정을 지나오면서 개발이라는 직군에 뛰어들게 되었습니다. 이렇게 꾸준하게 사용자의 관점에서 생각할수있는 개발자가 되고 싶습니다. //
+
+                .</th>
+        </tr>
     </table>
 </div>
 <button type="button" class="btn btn-primary" id="liveToastBtn">인사</button>
@@ -408,12 +421,14 @@
     }
 
     let swh = false;
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll',() => {
         console.log(window.scrollY)
-        document.querySelector('#liveToastBtn').click();
-        swh = true;
+        if(window.scrollY>2800 && swh===false){
+            document.querySelector('#liveToastBtn').click();
+            swh = true;
+        }
     })
-}
+
 
 </script>
 </body>

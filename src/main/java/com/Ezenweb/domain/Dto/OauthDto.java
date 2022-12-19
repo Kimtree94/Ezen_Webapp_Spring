@@ -80,7 +80,7 @@ public class OauthDto {
     public MemberEntity toEntity(){
         return MemberEntity.builder()
                 .memail(this.memail)
-                .mrole("SNS_"+registrationId)
+                .mrole("ROLE_MEMBER")
                 .build();
     }
 }
