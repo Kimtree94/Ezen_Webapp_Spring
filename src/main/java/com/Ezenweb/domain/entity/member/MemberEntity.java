@@ -3,6 +3,7 @@ package com.Ezenweb.domain.entity.member;
 import com.Ezenweb.domain.Dto.MemberDto;
 import com.Ezenweb.domain.entity.BaseEntity;
 import com.Ezenweb.domain.entity.board.BoardEntity;
+import com.Ezenweb.domain.entity.room.RoomEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,6 +36,11 @@ public class MemberEntity extends BaseEntity {
     @OneToMany(mappedBy = "memberEntity") //[ 1:n ]PK에 해당하는 어노테이션  mappedBy = fk의 필드명
     @Builder.Default//빌더 사용시 해당 필드의 초기값 설정
     private List<BoardEntity> boardEntityList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "memberEntity")
+    @Builder.Default
+    @ToString.Exclude
+    private List<RoomEntity> roomEntityList=new ArrayList<>();
 
     @Column// 회원 등급 필드
     private String mrole;

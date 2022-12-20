@@ -45,6 +45,7 @@ import BoardView from "./board/BoardView"
 import BoardUpdate from "./board/BoardUpdate";
 import Chatting from "./chatting/Chatting";
 import Calculator from "../Book/chapter12/Calculator";
+import Roomwrite from "./room/Roomwrite";
 // 라우터 설치
 // import {컴포넌트명} from 'react-router-dom' : V6
 import {HashRouter,BrowserRouter , Routes , Route , Link, Router} from 'react-router-dom';
@@ -61,6 +62,8 @@ export default function Index(props){
                     <Route path="/board/list" element={<List/>} />
                     <Route path="/board/write" element={<BoardWrite/>} />
                     <Route path="/chatting" element={<Chatting/>} />
+                    <Route path="/room/write" element={<Roomwrite/>}/>
+
 
                     <Route path="/board/view/:bno" element={<BoardView/>} />
                     <Route path="/board/update/:bno" element={<BoardUpdate/>} />
