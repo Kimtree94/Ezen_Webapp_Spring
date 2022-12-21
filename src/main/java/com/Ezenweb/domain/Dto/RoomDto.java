@@ -16,28 +16,17 @@ public class RoomDto {
     private String rtitle;
     private String rprice;
     private String rtrans;
-    private List<MultipartFile> rimg;
+    private List<MultipartFile> rimg; // 저장용 이미지 인터페이스
     private String rname;
     private String rlat;
     private String rlng;
+    private String memail;//작성자
+    private int rno;
 
-
-//    @Autowired
-//    private RoomImgRepository roomImgRepository;
+    private List<String> getrimg; // 출려용 이미지
 
     public RoomEntity toEntity(){
-        //이미지 리스트
- /*       ArrayList<RoomImgEntity> list = new ArrayList<RoomImgEntity>();
-        for(MultipartFile file:rimg){
-            if(file.getOriginalFilename().equals("")){
-//                file.transferTo( );// 이미지 업로드
-                RoomImgEntity roomImgEntity = new RoomImgEntity();
-                roomImgEntity.setRimg(file.getOriginalFilename());
-               list.add(roomImgRepository.save(roomImgEntity));
-            }
 
-        }
-*/
        return RoomEntity.builder()
                .rtitle(this.rtitle)
                .rprice(this.rprice)

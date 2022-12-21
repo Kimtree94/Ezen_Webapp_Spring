@@ -75,11 +75,10 @@ export default function RoomWrite(props) {
     //4. 방 등록 버튼을 눌렀을때 이벤트
     const onWrite = () => {
         let formbox = document.querySelector('.formbox')
-        let formdata = new FormData(formbox);
-        formdata.set("rname",address.name);
-        formdata.set("rlat",address.lat);
-        formdata.set("rlng",address.lng);
-
+        let formdata = new FormData(formbox);   // 폼전체
+        formdata.set("rname",address.name); // 폼 전체 + 주소정보
+        formdata.set("rlat",address.lat);   // 폼 전체 + 좌표
+        formdata.set("rlng",address.lng);   // 폼 전체 + 좌표
 
         axios.post("/room/setroom",formdata,{headers:{'Content-Type':'multipart/form-data'}})
             .then(res=>{
@@ -91,7 +90,6 @@ export default function RoomWrite(props) {
     /* ------------ 5. html or jsx표현식 { }------------------*/
     return (
         <>
-            <div>
                 <h3> 방 등록 </h3>
                 <form className="formbox">
                     방이름 : <input type="text" name="rtitle"/>
@@ -116,11 +114,8 @@ export default function RoomWrite(props) {
                     <div id="map"
                          ref={mapContainer}
                          style={{width: '100%', height: '350px'}}></div>
-
-
                     <button type="button" onClick={onWrite}>등록</button>
                 </form>
-            </div>
         </>
     );
     /* -------------------------------------------*/
