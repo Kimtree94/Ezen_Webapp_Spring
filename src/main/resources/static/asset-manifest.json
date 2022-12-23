@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.65e5bdbf.css",
-    "main.js": "/static/js/main.317c0e1b.js",
+    "main.css": "/static/css/main.8e68453b.css",
+    "main.js": "/static/js/main.f899302f.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/캡처.JPG": "/static/media/캡처.4331d02fb82e06e3bcda.JPG",
     "static/media/roomicon.png": "/static/media/roomicon.ee4c2a80a3a97409b863.png",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.65e5bdbf.css.map": "/static/css/main.65e5bdbf.css.map",
-    "main.317c0e1b.js.map": "/static/js/main.317c0e1b.js.map",
+    "main.8e68453b.css.map": "/static/css/main.8e68453b.css.map",
+    "main.f899302f.js.map": "/static/js/main.f899302f.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65e5bdbf.css",
-    "static/js/main.317c0e1b.js"
+    "static/css/main.8e68453b.css",
+    "static/js/main.f899302f.js"
   ]
 }

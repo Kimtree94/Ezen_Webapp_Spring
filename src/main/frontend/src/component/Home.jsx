@@ -1,13 +1,21 @@
 import React , { useState ,useEffect , useRef  } from 'react'
 import axios from 'axios'
 
-
-
+/* --------- 부트스트랩 import ----------*/
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+/* ------------------------------------ */
 
 export default function Home( props ) {
 
+    /* ---- 부트스트랩 사이드바 상태 [ 열렸을때 true 닫혔을때 false ] 변수 ---- */
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    /*----------------------------*/
+    const [ selectIndex , setSelectIndex ] = useState( 0 ); // 마커 클릭시 클릭된 roomList index 저장
     /* ---------  룸 데이터 ------------------*/
-    const [ roomList , setRoomList ] = useState([]);
+    const [ roomList , setRoomList ] = useState( [ { getrimg : [] } ] );
     // useEffect( ()=>{ axios } , [] );
     useEffect( ()=>{
         axios.get("/room/getroomlist")
@@ -30,34 +38,61 @@ export default function Home( props ) {
             minLevel: 5 // 클러스터 할 최소 지도 레벨
         });
         /* ------- 마커 이미지 --------------- */
-        var markerImageUrl = 'http://localhost:8080/static/media/roomicon.ee4c2a80a3a97409b863.png',
+        var markerImageUrl = 'http://localhost:8080/static/media/roomicon.b818afd964f981aed393.png',
             markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
             markerImageOptions = {
                 offset : new kakao.maps.Point(20, 42)// 마커 좌표에 일치시킬 이미지 안의 좌표
             };
         var markerImage = new kakao.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
 
-        var markers = roomList.map( ( position ) => { // 데이터를 가져와서 마커 생성후에 클러스터에 추가
+        // ** 데이터를 가져와서 마커 생성후에 클러스터에 추가
+        var markers = roomList.map( ( position , i ) => {
             // 가져온 데이터의 좌표들을 반복문 돌리면서 [ 1. * 마커 생성 ]
             // [ 2. 생성된 마커들을 markers 에 저장 ] map반복문 return
+
             let marker = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng( position.rlat, position.rlng  ), // 마커의 좌표
+                position: new kakao.maps.LatLng( position.rlat, position.rlng ), // 마커의 좌표
                 image : markerImage, // 마커의 이미지
                 map: map // 마커를 표시할 지도 객체
             });
+
             // 마커에 클릭이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function() {
-                alert("ㅇㅇ")
+                setSelectIndex( i ); // 클릭된 마커의  roomList index 저장
+                setShow(true); // 부트스트랩 사이드바 열기
             });
+
             return marker;
+
         });
         clusterer.addMarkers(markers); // 클러스터러에 마커들을 추가합니다
-    })
+    },[roomList])
 
     return(
-        <div>
-            {/*카카오 map api */ }
-            <div id="map" ref={ mapContainer } style={{width:'100%',height:'700px'}} >  </div>
-        </div>
+
+        <>
+            {/*---------------------부트스트랩 사이드바-------------------------- */}
+            <Offcanvas show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    { selectIndex }
+                    {
+                        /* 선택된 룸의 이미지들을 출력 */
+                        roomList[ selectIndex ].getrimg.map( ( img ) => {
+                            return <img src={ "http://localhost:8080/static/media/"+img } />
+                        })
+                    }
+
+                </Offcanvas.Body>
+            </Offcanvas>
+            { /* ---------------------------------------------------------*/ }
+
+            <div>
+                {/*카카오 map api */ }
+                <div id="map" ref={ mapContainer } style={{width:'100%',height:'800px'}} >  </div>
+            </div>
+        </>
     )
 }
